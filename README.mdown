@@ -21,7 +21,7 @@ And [Croogo](http://croogo.com) CMS
   
 #### Manual Instalation
   * Download and unzip the .zip file or the source code
-  * Extract all folders inside your croogo_folder/plugins
+  * Extract geecktec_ckeditor inside your croogo_folder/plugins
 
 ## Links
   * **Official website**: [http://blog.geecktec.com](http://blog.geecktec.com)
