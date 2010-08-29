@@ -82,6 +82,10 @@ class CkeditorHelper extends AppHelper {
 			$this->_generateJs($this->View->viewVars['settings']);
 		}
 		
+		if ($this->params['controller'] == 'attachments' && $this->params['action'] == 'admin_browse') {
+			$this->Html->scriptBlock($this->selectURL(), array('inline' => false));
+		}
+		
 	}
 	
 	/**
@@ -123,7 +127,7 @@ class CkeditorHelper extends AppHelper {
 	 * @return string
 	 */
 	private function fileBrowserCallBack(){
-		$filebrowserBrowseUr = $this->config['filebrowserBrowseUrl'] != 'default' ? "filebrowserBrowseUrl: '{$this->webroot}{$this->config['filebrowserBrowseUrl']}'" : null;
+		$filebrowserBrowseUr = $this->config['filebrowserBrowseUrl'] != 'default' ? "filebrowserBrowseUrl: '{$this->webroot}{$this->config['filebrowserBrowseUrl']}'" : "filebrowserBrowseUrl: '{$this->webroot}admin/attachments/browse',";
 		
 		$styles = $this->config['styles'] != 'default' ? "styles: '{$this->webroot}/{$this->name}/js/ckeditor/_source/plugins/styles/styles/{$this->config['styles']}," : null;
 		$templates = $this->config['templates'] != 'default' ? "templates_file: '{$this->webroot}/{$this->name}/js/ckeditor/plugins/templates/templates/{$this->config['templates']}," : null;
@@ -145,6 +149,20 @@ class CkeditorHelper extends AppHelper {
 		return $retorno;
 	}
 	
+	function selectUrl(){
+		$output = "
+		$.urlParam = function(name){
+			var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+			return results[1] || 0;
+		}
+		function selectURL(url) {
+			if (url == '') return false;
+			url = '".Router::url('/uploads/', true)."' + url;
+			window.opener.CKEDITOR.tools.callFunction($.urlParam('CKEditorFuncNum'), url)
+			window.close();
+        }";
+		return $output;
+	}
 	
 	/**
 	 * Changes the text of configuration for select
