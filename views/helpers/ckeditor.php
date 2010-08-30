@@ -153,12 +153,14 @@ class CkeditorHelper extends AppHelper {
 		$output = "
 		$.urlParam = function(name){
 			var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+			if(!results){
+				return 1;
+			}
 			return results[1] || 0;
 		}
 		function selectURL(url) {
-			if (url == '') return false;
 			url = '".Router::url('/uploads/', true)."' + url;
-			window.opener.CKEDITOR.tools.callFunction($.urlParam('CKEditorFuncNum'), url)
+			window.opener.CKEDITOR.tools.callFunction($.urlParam('CKEditorFuncNum'), url);
 			window.close();
         }";
 		return $output;
