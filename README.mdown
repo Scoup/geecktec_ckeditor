@@ -22,6 +22,9 @@ And [Croogo](http://croogo.com) CMS
 #### Manual Instalation
   * Download and unzip the .zip file or the source code
   * Extract geecktec_ckeditor inside your croogo_folder/plugins
+  
+#### Not Compatible with TinyMCE
+  * Disable TinyMCE when you are using CKeditor
 
 ## Links
   * **Official website**: [http://blog.geecktec.com](http://blog.geecktec.com)
