@@ -118,7 +118,7 @@ class CkeditorHelper extends AppHelper {
 		$plugins = Configure::read('Hook.bootstraps');
 		$plugins = explode(',', $plugins);
 		if(in_array('geecktec_filemanager', $plugins) && $this->config['filebrowserBrowseUrl'] == 'default'){
-			$this->config['filebrowserBrowseUrl'] = 'geecktec_filemanager/folders';
+			$this->config['filebrowserBrowseUrl'] = 'admin/geecktec_filemanager/geecktec_filemanager_folders';
 		}
 	}
 	
