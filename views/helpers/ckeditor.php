@@ -54,7 +54,7 @@ class CkeditorHelper extends AppHelper {
 	public $config = array(
 		'skin' => 'geecktec_ckeditor/webroot/js/ckeditor/skins',
 		'lang' => 'geecktec_ckeditor/webroot/js/ckeditor/lang',
-		'styles' => 'geecktec_ckeditor/webroot/js/ckeditor/_source/plugins/styles/styles',
+		'styles' => 'geecktec_ckeditor/webroot/js/ckeditor/plugins/styles/styles',
 		'templates' => 'geecktec_ckeditor/webroot/js/ckeditor/plugins/templates/templates'
 	);
 			
@@ -129,7 +129,7 @@ class CkeditorHelper extends AppHelper {
 	private function fileBrowserCallBack(){
 		$filebrowserBrowseUr = $this->config['filebrowserBrowseUrl'] != 'default' ? "filebrowserBrowseUrl: '{$this->webroot}{$this->config['filebrowserBrowseUrl']}'" : "filebrowserBrowseUrl: '{$this->webroot}admin/attachments/browse',";
 		
-		$styles = $this->config['styles'] != 'default' ? "styles: '{$this->webroot}/{$this->name}/js/ckeditor/_source/plugins/styles/styles/{$this->config['styles']}," : null;
+		$styles = $this->config['styles'] != 'default' ? "styles: '{$this->webroot}/{$this->name}/js/ckeditor/plugins/styles/styles/{$this->config['styles']}," : null;
 		$templates = $this->config['templates'] != 'default' ? "templates_file: '{$this->webroot}/{$this->name}/js/ckeditor/plugins/templates/templates/{$this->config['templates']}," : null;
 				
 		$retorno = 
