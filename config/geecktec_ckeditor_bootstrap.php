@@ -36,6 +36,7 @@
 	        	array('Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript', 'Superscript'),
 	        	array('NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote'),
 	        	array('JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'),
+		array('Link', 'Unlink', 'Anchor'),
 	        	array('Image', 'Flash', 'Table', 'HorizontalRule', 'SpecialChar'),
 	        	array('TextColor', 'Maximize', 'ShowBlocks'),
 	        	array('Styles', 'Format', 'Font', 'FontSize')	
